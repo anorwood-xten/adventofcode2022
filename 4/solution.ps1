@@ -18,22 +18,16 @@ foreach ($assignment in $assignments) {
 
         $count++
 
-        #Write-Output "$group2 is inside $group1"
-
     }
     elseif ($group1fn -ge $group2fn -and $group1sn -le $group2sn) {
 
         $count++
-
-        #Write-Output "$group1 is inside $group2"
 
     }
 
     if ($group1fn -in $group2fn..$group2sn -or $group1sn -in $group2fn..$group2sn -or $group2fn -in $group1fn..$group1sn -or $group2sn -in $group1fn..$group1sn) {
 
         $count2++
-
-        #Write-Output "$group2 is inside $group1"
 
     }
 
