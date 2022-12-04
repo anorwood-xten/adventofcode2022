@@ -14,12 +14,7 @@ foreach ($assignment in $assignments) {
     [int]$group2fn = ($group2 -split("-"))[0]
     [int]$group2sn = ($group2 -split("-"))[1]
 
-    if ($group1fn -le $group2fn -and $group1sn -ge $group2sn) {
-
-        $count++
-
-    }
-    elseif ($group1fn -ge $group2fn -and $group1sn -le $group2sn) {
+    if (($group1fn -le $group2fn -and $group1sn -ge $group2sn) -or ($group1fn -ge $group2fn -and $group1sn -le $group2sn)) {
 
         $count++
 
