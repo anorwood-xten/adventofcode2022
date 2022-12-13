@@ -13,8 +13,6 @@ for ($r = 0; $r -le ($rows - 1); $r++) {
         }
         else {
             $valueToCompare = [int]::Parse($trees[$r][$c])
-
-            $visible = 0
         
             #left
             $highestLeftTree = 0
@@ -49,22 +47,15 @@ for ($r = 0; $r -le ($rows - 1); $r++) {
 
             for ($l = ($c + 1); $l -le ($columns - 1); $l++) {
                 $currentValue = [int]::Parse($trees[$r][$l])
-                #Write-Output "Value to Compare: $valueToCompare"
-                #Write-Output "CurrentValue: $currentValue"
-                #Write-Output "Row to consider: $l"
-                #Write-Output "Right Max Reached: $rightMaxReached"
 
                 if ($currentValue -ge $highestRightTree) {
                     $highestRightTree = $currentValue
                 }
 
                 if ($currentValue -lt $valueToCompare -and $rightMaxReached -eq 0) {
-                    #Write-Output "$currentValue is less than $valueToCompare, adding 1 to score"
-                    #$rightMaxReached
                     $rightScore++
                 }
                 elseif ($currentValue -ge $valueToCompare -and $rightMaxReached -eq 0) {
-                    #Write-Output "$currentValue is equal to or greater than $valueToCompare, adding 1 to score and adding no more"
                     $rightScore ++
                     $rightMaxReached = 1
                 }
@@ -133,11 +124,9 @@ for ($r = 0; $r -le ($rows - 1); $r++) {
 
             if ($down -eq 1 -or $up -eq 1 -or $left -eq 1 -or $right -eq 1) {
                 $total = $total + 1
-                #Write-Output "$valueToCompare, in row $r and column $c, is visible"
             }
 
             if ($maxScenicScore -lt $currentScenicScore) {
-                Write-Output "Changing maxScenicScore for row $r and column $c"
                 $maxScenicScore = $currentScenicScore
             }
 
